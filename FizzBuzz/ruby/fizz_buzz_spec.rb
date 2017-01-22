@@ -22,4 +22,8 @@ describe FizzBuzz do
     expect(@f.say 3).to eql 'Fizz'
   end
 
+  it 'should return Buzz' do
+    expect(@f.say 5).to eql 'Fizz'
+  end
+
 end
