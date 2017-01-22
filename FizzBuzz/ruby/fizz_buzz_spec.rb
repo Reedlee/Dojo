@@ -12,7 +12,7 @@ describe FizzBuzz do
     @f = FizzBuzz.new
   end
 
-  [1,2].each do |number|
+  [1, 2, 4].each do |number|
     it 'should return 1' do
       expect(@f.say number).to eql number
     end
