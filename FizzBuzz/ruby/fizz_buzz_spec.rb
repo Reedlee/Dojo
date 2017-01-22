@@ -20,21 +20,15 @@ describe FizzBuzz do
     end
   end
 
-  [3, 6].each do |number|
-    it 'should return Fizz' do
-      expect(@f.say number).to eql 'Fizz'
-    end
-  end
-
-  [5, 10].each do|number|
-    it 'should return Buzz' do
-      expect(@f.say number).to eql 'Buzz'
-    end
-  end
-
-  [15, 30].each do |number|
-    it 'should return FizzBuzz' do
-      expect(@f.say number).to eql 'FizzBuzz'
+  {
+      'Fizz'=> [3, 6],
+      'Buzz'=> [5, 10],
+      'FizzBuzz'=> [15, 30]
+  }.each do |expected_result, params|
+    params.each do |number|
+      it "should return #{expected_result}" do
+        expect(@f.say number).to eql expected_result
+      end
     end
   end
 end
