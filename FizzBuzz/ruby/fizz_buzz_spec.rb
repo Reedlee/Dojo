@@ -25,8 +25,9 @@ describe FizzBuzz do
     end
   end
 
-  it 'should return Buzz' do
-    expect(@f.say 5).to eql 'Buzz'
+  [5, 10].each do|number|
+    it 'should return Buzz' do
+      expect(@f.say number).to eql 'Buzz'
+    end
   end
-
 end
