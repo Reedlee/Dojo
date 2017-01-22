@@ -2,7 +2,7 @@ require 'rspec'
 
 class FizzBuzz
   def say number
-    return 'Fizz' if number == 3
+    return 'Fizz' if number % 3 == 0
     return 'Buzz' if number == 5
     number
   end
