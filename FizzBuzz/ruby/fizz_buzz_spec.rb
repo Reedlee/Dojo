@@ -17,4 +17,8 @@ describe FizzBuzz do
     end
   end
 
+  it 'should return Fizz' do
+    expect(@f.say number).to eql 'Fizz'
+  end
+
 end
