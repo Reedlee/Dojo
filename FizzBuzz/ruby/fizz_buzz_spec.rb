@@ -3,6 +3,7 @@ require 'rspec'
 class FizzBuzz
   def say number
     return 'Fizz' if number == 3
+    return 'Buzz' if number == 5
     number
   end
 end
@@ -23,7 +24,7 @@ describe FizzBuzz do
   end
 
   it 'should return Buzz' do
-    expect(@f.say 5).to eql 'Fizz'
+    expect(@f.say 5).to eql 'Buzz'
   end
 
 end
