@@ -7,15 +7,14 @@ class FizzBuzz
 end
 
 describe FizzBuzz do
-
-  it 'should return 1' do
-    f = FizzBuzz.new
-    expect(f.say 1).to eql 1
+  before do
+    @f = FizzBuzz.new
   end
 
-  it 'should return 2' do
-    f = FizzBuzz.new
-    expect(f.say 2).to eql 2
+  [1,2].each do |number|
+    it 'should return 1' do
+      expect(@f.say number).to eql number
+    end
   end
 
 end
