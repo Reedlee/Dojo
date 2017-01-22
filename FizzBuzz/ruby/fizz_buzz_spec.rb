@@ -1,5 +1,11 @@
 require 'rspec'
 
+class FizzBuzz
+  def say number
+    number
+  end
+end
+
 describe FizzBuzz do
 
   it 'should return 1' do
