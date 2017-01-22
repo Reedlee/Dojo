@@ -1,9 +1,9 @@
 require 'rspec'
 
-describe 'My behaviour' do
+describe FizzBuzz do
 
-  it 'should do something' do
-
-    true.should == false
+  it 'should return 1' do
+    f = FizzBuzz.new
+    expect(f.say 1).to eql 1
   end
 end
