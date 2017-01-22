@@ -30,4 +30,10 @@ describe FizzBuzz do
       expect(@f.say number).to eql 'Buzz'
     end
   end
+
+  [15, 30].each do |number|
+    it 'should return FizzBuzz' do
+      expect(@f.say number).to eql 'FizzBuzz'
+    end
+  end
 end
