@@ -12,4 +12,10 @@ describe FizzBuzz do
     f = FizzBuzz.new
     expect(f.say 1).to eql 1
   end
+
+  it 'should return 2' do
+    f = FizzBuzz.new
+    expect(f.say 2).to eql 2
+  end
+
 end
