@@ -20,14 +20,14 @@ describe FizzBuzz do
     end
   end
 
-  {
-      'Fizz'=> [3, 6],
-      'Buzz'=> [5, 10],
-      'FizzBuzz'=> [15, 30]
-  }.each do |expected_result, params|
-    params.each do |number|
-      it "should return #{expected_result}" do
-        expect(@f.say number).to eql expected_result
+  [
+    {inputs: [3, 6], expected_result: 'Fizz', multiple: 3},
+    {inputs: [5, 10], expected_result: 'Buzz', multiple: 5},
+    {inputs: [15, 30], expected_result: 'FizzBuzz', multiple: 15}
+  ].each do |dataset|
+    dataset[:inputs].each do |number|
+      it "if number multiple #{dataset[:multiple]} it should return #{dataset[:expected_result]}" do
+        expect(@f.say number).to eql dataset[:expected_result]
       end
     end
   end
