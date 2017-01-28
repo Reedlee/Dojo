@@ -23,7 +23,8 @@ describe RomanNumber do
       3=>'III',
       4=>'IV',
       5=>'V',
-      6=>'VI'
+      6=>'VI',
+      7=>'VII'
   }.each do |normal_number, roman_number|
     it "#{normal_number} should be equal #{roman_number}" do
       expect(@r.to_roman normal_number).to eql roman_number
