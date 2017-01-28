@@ -6,6 +6,7 @@ class RomanNumber
     return 'II' if number == 2
     return 'III' if number == 3
     return 'IX' if number == 9
+    return 'X' if number == 10
     return 'IV' if number == 5 - 1
     return 'V' if number == 5
     return 'V' + to_roman(number - 5) if number > 5
