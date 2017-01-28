@@ -9,6 +9,7 @@ class RomanNumber
     return 'V' if number == 5
     return 'VI' if number == 6
     return 'VII' if number == 7
+    return 'VIII' if number == 8
   end
 end
 
