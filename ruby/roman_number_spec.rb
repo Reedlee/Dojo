@@ -7,6 +7,7 @@ class RomanNumber
     return 'III' if number == 3
     return 'IV' if number == 4
     return 'V' if number == 5
+    return 'VI' if number == 6
   end
 end
 
