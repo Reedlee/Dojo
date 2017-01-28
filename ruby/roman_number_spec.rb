@@ -30,4 +30,9 @@ describe RomanNumber do
     r = RomanNumber.new
     expect(r.to_roman 4).to eql 'IV'
   end
+
+  it '5 should be equal V' do
+    r = RomanNumber.new
+    expect(r.to_roman 5).to eql 'V'
+  end
 end
