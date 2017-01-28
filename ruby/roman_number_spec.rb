@@ -17,27 +17,16 @@ describe RomanNumber do
     @r = RomanNumber.new
   end
 
-  it '1 should be equal I' do
-    expect(@r.to_roman 1).to eql 'I'
+  {
+      1=>'I',
+      2=>'II',
+      3=>'III',
+      4=>'IV',
+      5=>'V',
+      6=>'VI'
+  }.each do |normal_number, roman_number|
+    it "#{normal_number} should be equal #{roman_number}" do
+      expect(@r.to_roman normal_number).to eql roman_number
     end
-
-  it '2 should be equal II' do
-    expect(@r.to_roman 2).to eql 'II'
-  end
-
-  it '3 should be equal III' do
-    expect(@r.to_roman 3).to eql 'III'
-  end
-
-  it '4 should be equal IV' do
-    expect(@r.to_roman 4).to eql 'IV'
-  end
-
-  it '5 should be equal V' do
-    expect(@r.to_roman 5).to eql 'V'
-  end
-
-  it '6 should be equal VI' do
-    expect(@r.to_roman 6).to eql 'VI'
   end
 end
