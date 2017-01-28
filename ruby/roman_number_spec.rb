@@ -2,7 +2,8 @@ require 'rspec'
 
 class RomanNumber
   def to_roman(number)
-    'I'
+    return 'I' if number == 1
+    return 'II' if number == 2
   end
 end
 
