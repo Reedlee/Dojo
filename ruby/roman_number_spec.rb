@@ -18,4 +18,9 @@ describe RomanNumber do
     r = RomanNumber.new
     expect(r.to_roman 2).to eql 'II'
   end
+
+  it '3 should be equal III' do
+    r = RomanNumber.new
+    expect(r.to_roman 3).to eql 'III'
+  end
 end
