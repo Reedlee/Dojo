@@ -13,33 +13,31 @@ end
 
 describe RomanNumber do
 
+  before do
+    @r = RomanNumber.new
+  end
+
   it '1 should be equal I' do
-    r = RomanNumber.new
-    expect(r.to_roman 1).to eql 'I'
+    expect(@r.to_roman 1).to eql 'I'
     end
 
   it '2 should be equal II' do
-    r = RomanNumber.new
-    expect(r.to_roman 2).to eql 'II'
+    expect(@r.to_roman 2).to eql 'II'
   end
 
   it '3 should be equal III' do
-    r = RomanNumber.new
-    expect(r.to_roman 3).to eql 'III'
+    expect(@r.to_roman 3).to eql 'III'
   end
 
   it '4 should be equal IV' do
-    r = RomanNumber.new
-    expect(r.to_roman 4).to eql 'IV'
+    expect(@r.to_roman 4).to eql 'IV'
   end
 
   it '5 should be equal V' do
-    r = RomanNumber.new
-    expect(r.to_roman 5).to eql 'V'
+    expect(@r.to_roman 5).to eql 'V'
   end
 
   it '6 should be equal VI' do
-    r = RomanNumber.new
-    expect(r.to_roman 6).to eql 'VI'
+    expect(@r.to_roman 6).to eql 'VI'
   end
 end
