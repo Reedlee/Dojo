@@ -1,7 +1,9 @@
 require 'rspec'
 
 class RomanNumber
-
+  def to_roman(number)
+    'I'
+  end
 end
 
 describe RomanNumber do
