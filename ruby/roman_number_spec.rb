@@ -33,6 +33,9 @@ describe RomanNumber do
       10 => 'X',
       11 => 'XI',
       13 => 'XIII',
+      14 => 'XIV',
+      15 => 'XV',
+      19 => 'XIX',
   }.each do |normal_number, roman_number|
     it "#{normal_number} should be equal #{roman_number}" do
       expect(@r.to_roman normal_number).to eql roman_number
