@@ -7,11 +7,11 @@ class RomanNumber
     return 'III' if number == 3
     return 'V' if number == 5
     return 'X' if number == 10
-    return 'XX' if number == 20
+    return 'L' if number == 50
     return 'I' + to_roman(number + 1) if number  == 5 - 1
     return 'I' + to_roman(number + 1) if number  == 10 - 1
     return 'V' + to_roman(number - 5) if number > 5 && number < 9
-    return 'X' + to_roman(number - 10) if number > 10 && number < 20
+    return 'X' + to_roman(number - 10) if number > 10 && number < 40
   end
 end
 
