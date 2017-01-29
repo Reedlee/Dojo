@@ -2,12 +2,16 @@ require 'rspec'
 
 class RomanNumber
   def to_roman(number)
-    return 'I' if number == 1
-    return 'II' if number == 2
-    return 'III' if number == 3
-    return 'V' if number == 5
-    return 'X' if number == 10
-    return 'L' if number == 50
+    {
+        1 => 'I',
+        2 => 'II',
+        3 => 'III',
+        5 => 'V',
+        10 => 'X',
+        50 => 'L',
+    }.each do |normal_number, roman_number|
+      return roman_number if number == normal_number
+    end
     return 'I' + to_roman(number + 1) if number  == 5 - 1
     return 'I' + to_roman(number + 1) if number  == 10 - 1
     return 'V' + to_roman(number - 5) if number > 5 && number < 9
