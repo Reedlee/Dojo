@@ -14,6 +14,7 @@ class RomanNumber
     end
     return 'I' + to_roman(number + 1) if number  == 5 - 1
     return 'I' + to_roman(number + 1) if number  == 10 - 1
+    return 'X' + to_roman(number + 10) if number == 50 - 10
     return 'V' + to_roman(number - 5) if number > 5 && number < 9
     return 'X' + to_roman(number - 10) if number > 10 && number < 40
   end
