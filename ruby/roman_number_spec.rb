@@ -46,7 +46,8 @@ describe RomanNumber do
       20 => 'XX',
       40 => 'XL',
       50 => 'L',
-      52 => 'LII'
+      52 => 'LII',
+      44 => 'XLIV',
   }.each do |normal_number, roman_number|
     it "#{normal_number} should be equal #{roman_number}" do
       expect(@r.to_roman normal_number).to eql roman_number
