@@ -17,6 +17,7 @@ class RomanNumber
     return 'I' + to_roman(number + 1) if number  == 10 - 1
     return 'X' + to_roman(number + 10) if (number >= 50 - 10) && number < 50
     return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
+
     return 'V' + to_roman(number - 5) if number > 5 && number < 9
     return 'X' + to_roman(number - 10) if number > 10 && number < 40
     return 'L' + to_roman(number - 50) if number > 50 && number < 90
@@ -54,6 +55,7 @@ describe RomanNumber do
       100 => 'C',
       101 => 'CI',
       90 => 'XC',
+      500 => 'D'
   }.each do |normal_number, roman_number|
     it "#{normal_number} should be equal #{roman_number}" do
       expect(@r.to_roman normal_number).to eql roman_number
