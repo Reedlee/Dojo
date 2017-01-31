@@ -2,8 +2,8 @@ require 'rspec'
 
 class RomanNumber
   def to_roman(number)
-    return 'I' + to_roman(number + 1) if number  == 5 - 1
-    return 'I' + to_roman(number + 1) if number  == 10 - 1
+    return 'I' + to_roman(number + 1) if (number  >= 5 - 1) && number < 5
+    return 'I' + to_roman(number + 1) if (number  >= 10 - 1) && number < 10
     return 'X' + to_roman(number + 10) if (number >= 50 - 10) && number < 50
     return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
     return 'C' + to_roman(number + 100) if (number >= 500 - 100) && number < 500
