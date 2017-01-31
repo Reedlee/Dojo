@@ -3,14 +3,14 @@ require 'rspec'
 class RomanNumber
   def to_roman(number)
     {
-        1 => 'I',
-        2 => 'II',
-        3 => 'III',
-        5 => 'V',
-        10 => 'X',
-        50 => 'L',
-        100 => 'C',
         500 => 'D',
+        100 => 'C',
+        50 => 'L',
+        10 => 'X',
+        5 => 'V',
+        3 => 'III',
+        2 => 'II',
+        1 => 'I',
     }.each do |normal_number, roman_number|
       return roman_number if number == normal_number
     end
