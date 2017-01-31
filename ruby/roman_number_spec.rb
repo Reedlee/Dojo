@@ -20,11 +20,11 @@ class RomanNumber
     return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
     return 'C' + to_roman(number + 100) if (number >= 500 - 100) && number < 500
 
-    return 'V' + to_roman(number - 5) if number > 5 && number < 9
-    return 'X' + to_roman(number - 10) if number > 10 && number < 40
-    return 'L' + to_roman(number - 50) if number > 50 && number < 90
-    return 'C' + to_roman(number - 100) if number > 100 && number < 500
-    return 'D' + to_roman(number - 500) if number > 500 && number < 1000
+    return 'D' + to_roman(number - 500) if number > 500
+    return 'C' + to_roman(number - 100) if number > 100
+    return 'L' + to_roman(number - 50) if number > 50
+    return 'X' + to_roman(number - 10) if number > 10
+    return 'V' + to_roman(number - 5) if number > 5
   end
 end
 
