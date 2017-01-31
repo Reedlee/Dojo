@@ -13,18 +13,15 @@ class RomanNumber
         1 => 'I',
     }.each do |normal_number, roman_number|
       return roman_number if number == normal_number
+      return roman_number + to_roman(number - normal_number) if number > normal_number
     end
+
     return 'I' + to_roman(number + 1) if number  == 5 - 1
     return 'I' + to_roman(number + 1) if number  == 10 - 1
     return 'X' + to_roman(number + 10) if (number >= 50 - 10) && number < 50
     return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
     return 'C' + to_roman(number + 100) if (number >= 500 - 100) && number < 500
 
-    return 'D' + to_roman(number - 500) if number > 500
-    return 'C' + to_roman(number - 100) if number > 100
-    return 'L' + to_roman(number - 50) if number > 50
-    return 'X' + to_roman(number - 10) if number > 10
-    return 'V' + to_roman(number - 5) if number > 5
   end
 end
 
