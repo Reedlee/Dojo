@@ -7,6 +7,7 @@ class RomanNumber
     return 'X' + to_roman(number + 10) if (number >= 50 - 10) && number < 50
     return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
     return 'C' + to_roman(number + 100) if (number >= 500 - 100) && number < 500
+    return 'C' + to_roman(number + 100) if (number >= 1000 - 100) && number < 1000
 
     {
         1000 => 'M',
