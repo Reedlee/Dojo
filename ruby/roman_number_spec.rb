@@ -62,6 +62,7 @@ describe RomanNumber do
       494 => 'CDXCIV',
       1000 => 'M',
       1649 => 'MDCXLIX',
+      999 => 'CMXCIX',
   }.each do |normal_number, roman_number|
     it "#{normal_number} should be equal #{roman_number}" do
       expect(@r.to_roman normal_number).to eql roman_number
