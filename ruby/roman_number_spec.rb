@@ -3,14 +3,14 @@ require 'rspec'
 class RomanNumber
   def to_roman(number)
     [
-      {roman: 'I', shift: 1, number: 5},
-      {roman: 'I', shift: 1, number: 10},
-      {roman: 'X', shift: 10, number: 50},
-      {roman: 'X', shift: 10, number: 100},
-      {roman: 'C', shift: 100, number: 500},
-      {roman: 'C', shift: 100, number: 1000},
+      {roman_number: 'I', shift: 1, normal_number: 5},
+      {roman_number: 'I', shift: 1, normal_number: 10},
+      {roman_number: 'X', shift: 10, normal_number: 50},
+      {roman_number: 'X', shift: 10, normal_number: 100},
+      {roman_number: 'C', shift: 100, normal_number: 500},
+      {roman_number: 'C', shift: 100, normal_number: 1000},
     ].each do |params|
-      return params[:roman] + to_roman(number + params[:shift]) if (number  >= params[:number] - params[:shift]) && number < params[:number]
+      return params[:roman_number] + to_roman(number + params[:shift]) if (number  >= params[:normal_number] - params[:shift]) && number < params[:normal_number]
     end
 
     {
