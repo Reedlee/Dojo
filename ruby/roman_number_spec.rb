@@ -2,12 +2,16 @@ require 'rspec'
 
 class RomanNumber
   def to_roman(number)
-    return 'I' + to_roman(number + 1) if (number  >= 5 - 1) && number < 5
-    return 'I' + to_roman(number + 1) if (number  >= 10 - 1) && number < 10
-    return 'X' + to_roman(number + 10) if (number >= 50 - 10) && number < 50
-    return 'X' + to_roman(number + 10) if (number >= 100 - 10) && number < 100
-    return 'C' + to_roman(number + 100) if (number >= 500 - 100) && number < 500
-    return 'C' + to_roman(number + 100) if (number >= 1000 - 100) && number < 1000
+    [
+      {roman: 'I', shift: 1, number: 5},
+      {roman: 'I', shift: 1, number: 10},
+      {roman: 'X', shift: 10, number: 50},
+      {roman: 'X', shift: 10, number: 100},
+      {roman: 'C', shift: 100, number: 500},
+      {roman: 'C', shift: 100, number: 1000},
+    ].each do |params|
+      return params[:roman] + to_roman(number + params[:shift]) if (number  >= params[:number] - params[:shift]) && number < params[:number]
+    end
 
     {
         1000 => 'M',
