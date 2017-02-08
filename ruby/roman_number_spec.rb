@@ -13,19 +13,17 @@ class RomanNumber
       return params[:roman_number] + to_roman(current_number + params[:shift]) if current_number.between?(params[:normal_number]-params[:shift],params[:normal_number]-1)
     end
 
-    {
-        1000 => 'M',
-        500 => 'D',
-        100 => 'C',
-        50 => 'L',
-        10 => 'X',
-        5 => 'V',
-        3 => 'III',
-        2 => 'II',
-        1 => 'I',
-    }.each do |normal_number, roman_number|
-      return roman_number if current_number == normal_number
-      return roman_number + to_roman(current_number - normal_number) if current_number > normal_number
+    [
+       {normal_number: 1000, roman_number: 'M'},
+       {normal_number: 500, roman_number: 'D'},
+       {normal_number: 100, roman_number: 'C'},
+       {normal_number: 50, roman_number: 'L'},
+       {normal_number: 10, roman_number: 'X'},
+       {normal_number: 5, roman_number: 'V'},
+       {normal_number: 1, roman_number: 'I'},
+    ].each do |params|
+      return params[:roman_number] if current_number == params[:normal_number]
+      return params[:roman_number] + to_roman(current_number - params[:normal_number]) if current_number > params[:normal_number]
     end
   end
 end
