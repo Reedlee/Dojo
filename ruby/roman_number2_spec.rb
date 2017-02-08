@@ -15,8 +15,12 @@ class RomanNumber
       return normal_number if current_number == roman_number
     end
 
-    return 5 + 1 if current_number == 'V' + 'I'
-    return 10 + 1 if current_number == 'X' + 'I'
+    result = 0
+    current_number.each_char do |symbol|
+      result += to_normal(symbol)
+    end
+
+    return result
   end
 end
 
