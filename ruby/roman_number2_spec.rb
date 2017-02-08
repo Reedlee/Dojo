@@ -25,6 +25,7 @@ describe RomanNumber do
     'III'=> 3,
     'V'=> 5,
     'X'=> 10,
+    'L'=> 50,
   }.each do |roman, normal|
     it "should #{roman} should be equal #{normal}" do
       expect(@converter.to_normal roman).to eql normal
