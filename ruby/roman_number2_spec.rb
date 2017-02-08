@@ -12,4 +12,9 @@ describe RomanNumber do
     r = RomanNumber.new
     expect(r.to_normal 'I').to eql 1
   end
+
+  it 'should I should be equal 1' do
+    r = RomanNumber.new
+    expect(r.to_normal 'II').to eql 2
+  end
 end
