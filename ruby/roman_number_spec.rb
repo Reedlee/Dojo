@@ -1,7 +1,7 @@
 require 'rspec'
 
 class RomanNumber
-  def to_roman(number)
+  def to_roman(current_number)
     [
       {roman_number: 'I', shift: 1, normal_number: 5},
       {roman_number: 'I', shift: 1, normal_number: 10},
@@ -10,7 +10,7 @@ class RomanNumber
       {roman_number: 'C', shift: 100, normal_number: 500},
       {roman_number: 'C', shift: 100, normal_number: 1000},
     ].each do |params|
-      return params[:roman_number] + to_roman(number + params[:shift]) if (number  >= params[:normal_number] - params[:shift]) && number < params[:normal_number]
+      return params[:roman_number] + to_roman(current_number + params[:shift]) if current_number.between?(params[:normal_number]-params[:shift],params[:normal_number]-1)
     end
 
     {
@@ -24,8 +24,8 @@ class RomanNumber
         2 => 'II',
         1 => 'I',
     }.each do |normal_number, roman_number|
-      return roman_number if number == normal_number
-      return roman_number + to_roman(number - normal_number) if number > normal_number
+      return roman_number if current_number == normal_number
+      return roman_number + to_roman(current_number - normal_number) if current_number > normal_number
     end
   end
 end
