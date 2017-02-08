@@ -6,6 +6,7 @@ class RomanNumber
         'II'=> 2,
         'III'=> 3,
         'V'=> 5,
+        'X'=> 10,
     }.each do |roman_number, normal_number|
       return normal_number if current_number == roman_number
     end
