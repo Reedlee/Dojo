@@ -14,6 +14,8 @@ class RomanNumber
     }.each do |roman_number, normal_number|
       return normal_number if current_number == roman_number
     end
+
+    return 5 + 1 if current_number == 'V' + 'I'
   end
 end
 
