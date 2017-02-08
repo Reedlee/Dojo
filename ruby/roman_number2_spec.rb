@@ -3,6 +3,7 @@ class RomanNumber
   def to_normal roman_number
     return 1 if roman_number == 'I'
     return 2 if roman_number == 'II'
+    return 3 if roman_number == 'III'
   end
 end
 
