@@ -8,19 +8,18 @@ end
 
 
 describe RomanNumber do
-
-  it 'should I should be equal 1' do
-    r = RomanNumber.new
-    expect(r.to_normal 'I').to eql 1
+  before do
+    @converter = RomanNumber.new
   end
 
-  it 'should II should be equal 2' do
-    r = RomanNumber.new
-    expect(r.to_normal 'II').to eql 2
+  {
+    'I'=> 1,
+    'II'=> 2,
+    'III'=> 3,
+  }.each do |roman, normal|
+    it "should #{roman} should be equal #{normal}" do
+      expect(@converter.to_normal roman).to eql normal
+    end
   end
 
-  it 'should III should be equal 3' do
-    r = RomanNumber.new
-    expect(r.to_normal 'III').to eql 3
-  end
 end
