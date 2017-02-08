@@ -1,10 +1,14 @@
 class RomanNumber
 
-  def to_normal roman_number
-    return 1 if roman_number == 'I'
-    return 2 if roman_number == 'II'
-    return 3 if roman_number == 'III'
-    return 5 if roman_number == 'V'
+  def to_normal current_number
+    {
+        'I'=> 1,
+        'II'=> 2,
+        'III'=> 3,
+        'V'=> 5,
+    }.each do |roman_number, normal_number|
+      return normal_number if current_number == roman_number
+    end
   end
 end
 
