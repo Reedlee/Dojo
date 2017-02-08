@@ -16,6 +16,7 @@ class RomanNumber
     end
 
     return 5 + 1 if current_number == 'V' + 'I'
+    return 10 + 1 if current_number == 'X' + 'I'
   end
 end
 
