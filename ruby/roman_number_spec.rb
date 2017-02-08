@@ -3,27 +3,17 @@ require 'rspec'
 class RomanNumber
   def to_roman(current_number)
     [
-      {roman_number: 'I', shift: 1, normal_number: 5},
-      {roman_number: 'I', shift: 1, normal_number: 10},
-      {roman_number: 'X', shift: 10, normal_number: 50},
-      {roman_number: 'X', shift: 10, normal_number: 100},
-      {roman_number: 'C', shift: 100, normal_number: 500},
-      {roman_number: 'C', shift: 100, normal_number: 1000},
-    ].each do |params|
-      return params[:roman_number] + to_roman(current_number + params[:shift]) if current_number.between?(params[:normal_number]-params[:shift],params[:normal_number]-1)
-    end
-
-    [
-       {normal_number: 1000, roman_number: 'M'},
-       {normal_number: 500, roman_number: 'D'},
-       {normal_number: 100, roman_number: 'C'},
-       {normal_number: 50, roman_number: 'L'},
-       {normal_number: 10, roman_number: 'X'},
-       {normal_number: 5, roman_number: 'V'},
-       {normal_number: 1, roman_number: 'I'},
+       {normal_number: 1000, roman_number: 'M', shift: 100, roman_number_prev: 'C'},
+       {normal_number: 500, roman_number: 'D', shift: 100, roman_number_prev: 'C'},
+       {normal_number: 100, roman_number: 'C', shift: 10, roman_number_prev: 'X'},
+       {normal_number: 50, roman_number: 'L', shift: 10, roman_number_prev: 'X'},
+       {normal_number: 10, roman_number: 'X', shift: 1, roman_number_prev: 'I'},
+       {normal_number: 5, roman_number: 'V', shift: 1, roman_number_prev: 'I'},
+       {normal_number: 1, roman_number: 'I', shift: 0, roman_number_prev: 'I'},
     ].each do |params|
       return params[:roman_number] if current_number == params[:normal_number]
       return params[:roman_number] + to_roman(current_number - params[:normal_number]) if current_number > params[:normal_number]
+      return params[:roman_number_prev] + to_roman(current_number + params[:shift]) if current_number.between?(params[:normal_number]-params[:shift],params[:normal_number]-1)
     end
   end
 end
