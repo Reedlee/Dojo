@@ -2,15 +2,15 @@ class RomanNumber
 
   def to_normal current_number
     {
-        'I'=> 1,
-        'II'=> 2,
-        'III'=> 3,
-        'V'=> 5,
-        'X'=> 10,
-        'L'=> 50,
-        'C'=> 100,
-        'D'=> 500,
-        'M'=> 1000,
+        'I' => 1,
+        'II' => 2,
+        'III' => 3,
+        'V' => 5,
+        'X' => 10,
+        'L' => 50,
+        'C' => 100,
+        'D' => 500,
+        'M' => 1000,
     }.each do |roman_number, normal_number|
       return normal_number if current_number == roman_number
     end
@@ -50,7 +50,8 @@ describe RomanNumber do
     'DXV' => 515,
     'IV' => 4,
     'IX' => 9,
-    'XIV' => 14
+    'XIV' => 14,
+    'XL' => 40,
   }.each do |roman, normal|
     it "should #{roman} should be equal #{normal}" do
       expect(@converter.to_normal roman).to eql normal
