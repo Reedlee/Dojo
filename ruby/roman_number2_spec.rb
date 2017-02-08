@@ -37,7 +37,8 @@ describe RomanNumber do
     'D'=> 500,
     'M'=> 1000,
     'VI'=> 6,
-    'XI'=> 10,
+    'XI'=> 11,
+    'XII'=> 12,
   }.each do |roman, normal|
     it "should #{roman} should be equal #{normal}" do
       expect(@converter.to_normal roman).to eql normal
