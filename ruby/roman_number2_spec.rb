@@ -14,8 +14,13 @@ describe RomanNumber do
     expect(r.to_normal 'I').to eql 1
   end
 
-  it 'should II should be equal 1' do
+  it 'should II should be equal 2' do
     r = RomanNumber.new
     expect(r.to_normal 'II').to eql 2
+  end
+
+  it 'should III should be equal 3' do
+    r = RomanNumber.new
+    expect(r.to_normal 'III').to eql 3
   end
 end
