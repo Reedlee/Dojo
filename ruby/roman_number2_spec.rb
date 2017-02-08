@@ -17,6 +17,7 @@ class RomanNumber
 
     return 5 - 1 if current_number == 'I'+'V'
     return 10 - 1 if current_number == 'I'+'X'
+    return 10 + 5 - 1 if current_number == 'X'+'I'+'V'
 
     result = 0
     current_number.each_char do |symbol|
