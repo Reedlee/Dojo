@@ -1,5 +1,8 @@
 class RomanNumber
 
+  def to_normal roman_number
+    1 if roman_number == 'I'
+  end
 end
 
 
