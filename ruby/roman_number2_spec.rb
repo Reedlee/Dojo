@@ -4,6 +4,7 @@ class RomanNumber
     return 1 if roman_number == 'I'
     return 2 if roman_number == 'II'
     return 3 if roman_number == 'III'
+    return 5 if roman_number == 'V'
   end
 end
 
