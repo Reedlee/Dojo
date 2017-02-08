@@ -10,6 +10,7 @@ class RomanNumber
         'L'=> 50,
         'C'=> 100,
         'D'=> 500,
+        'M'=> 1000,
     }.each do |roman_number, normal_number|
       return normal_number if current_number == roman_number
     end
