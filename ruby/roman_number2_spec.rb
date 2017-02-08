@@ -33,22 +33,23 @@ describe RomanNumber do
   end
 
   {
-    'I'=> 1,
-    'II'=> 2,
-    'III'=> 3,
-    'V'=> 5,
-    'X'=> 10,
-    'L'=> 50,
-    'C'=> 100,
-    'D'=> 500,
-    'M'=> 1000,
-    'VI'=> 6,
-    'XI'=> 11,
-    'XII'=> 12,
-    'DII'=> 502,
-    'DXV'=> 515,
-    'IV'=> 4,
-    'IX'=> 9,
+    'I' => 1,
+    'II' => 2,
+    'III' => 3,
+    'V' => 5,
+    'X' => 10,
+    'L' => 50,
+    'C' => 100,
+    'D' => 500,
+    'M' => 1000,
+    'VI' => 6,
+    'XI' => 11,
+    'XII' => 12,
+    'DII' => 502,
+    'DXV' => 515,
+    'IV' => 4,
+    'IX' => 9,
+    'XIV' => 14
   }.each do |roman, normal|
     it "should #{roman} should be equal #{normal}" do
       expect(@converter.to_normal roman).to eql normal
