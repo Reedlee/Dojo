@@ -2,28 +2,25 @@ class RomanNumber
 
   def search_rule current_number
     [
-        {roman_number: 'I', normal_number: 1},
-        {roman_number: 'V', normal_number: 5},
-        {roman_number: 'X', normal_number: 10},
-        {roman_number: 'L', normal_number: 50},
-        {roman_number: 'C', normal_number: 100},
-        {roman_number: 'D', normal_number: 500},
-        {roman_number: 'M', normal_number: 1000},
+        {roman_number: 'I', normal_number: 1, prev: 0},
+        {roman_number: 'V', normal_number: 5, prev: 1},
+        {roman_number: 'X', normal_number: 10, prev: 1},
+        {roman_number: 'L', normal_number: 50, prev: 10},
+        {roman_number: 'C', normal_number: 100, prev: 10},
+        {roman_number: 'D', normal_number: 500, prev: 100},
+        {roman_number: 'M', normal_number: 1000, prev: 100},
     ].each do |rule|
       return rule if current_number == rule[:roman_number]
     end
   end
 
   def to_normal current_number
-    return 5 - 1 if current_number == 'I'+'V'
-    return 10 - 1 if current_number == 'I'+'X'
-    return 50 - 10 if current_number == 'X' + 'L'
-
-    return 10 + 5 - 1 if current_number == 'X'+'I'+'V'
-
     result = []
     current_number.each_char do |symbol|
       rule = search_rule symbol
+      if result.last() == rule[:prev]
+        result[result.length-1] = -1 * rule[:prev]
+      end
       result.push rule[:normal_number]
     end
     sum = result.inject {|sum, element| sum + element}
