@@ -21,11 +21,13 @@ class RomanNumber
 
     return 10 + 5 - 1 if current_number == 'X'+'I'+'V'
 
-    result = 0
+    result = []
     current_number.each_char do |symbol|
-      result += to_normal(symbol)
+      result.push to_normal symbol
     end
-    return result
+    sum = result.inject {|sum, element| sum + element}
+
+    return sum
   end
 end
 
