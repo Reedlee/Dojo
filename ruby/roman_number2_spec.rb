@@ -54,6 +54,9 @@ describe RomanNumber do
     'IX' => 9,
     'XIV' => 14,
     'XL' => 40,
+    'MDCXLIX' => 1649,
+    'CMXCIX' => 999,
+    'MMCMXCIX' => 2999,
   }.each do |roman, normal|
     it "should #{roman} should be equal #{normal}" do
       expect(@converter.to_normal roman).to eql normal
