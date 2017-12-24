@@ -46,12 +46,13 @@ module RickShop
         alder: 'alder'
     }
 
-    def initialize(builder, model, type, back_wood, top_wood)
+    def initialize(builder, model, type, back_wood, top_wood, num_strings)
       @builder = validate(builder, BUILDER)
       @model = model
       @type = validate(type, TYPE)
       @back_wood = validate(back_wood, WOOD)
       @top_wood = validate(top_wood, WOOD)
+      @num_strings = num_strings
     end
 
     def validate(value, rule)
@@ -77,6 +78,10 @@ module RickShop
     def get_top_wood
       @top_wood
     end
+
+    def get_num_strings
+      @num_strings
+    end
   end
 
   class Inventory
@@ -84,8 +89,8 @@ module RickShop
       @guitars = guitars
     end
 
-    def add_guitar(serial_number, price, builder, model, type, back_wood, top_wood)
-      spec = GuitarSpec.new(builder, model, type, back_wood, top_wood)
+    def add_guitar(serial_number, price, builder, model, type, back_wood, top_wood, num_strings)
+      spec = GuitarSpec.new(builder, model, type, back_wood, top_wood, num_strings)
       guitar = Guitar.new(serial_number, price, spec)
       @guitars.push(guitar)
     end
@@ -108,6 +113,8 @@ module RickShop
         next if back_wood != guitar_spec.get_back_wood
         top_wood = search_spec.get_top_wood
         next if top_wood != guitar_spec.get_top_wood
+        num_strings = search_spec.get_num_strings
+        next if num_strings != guitar_spec.get_num_strings
         matching_guitars.push guitar
       end
       return matching_guitars
