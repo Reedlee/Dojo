@@ -94,23 +94,23 @@ module RickShop
       @guitars.map {|g| g if serial_number == g.get_serial_number}
     end
 
-    def search(guitar_spec)
-      guitar_list = []
-      @guitars.each do |g|
-        g_spec = g.get_spec
-        builder = guitar_spec.get_builder
-        next if builder != g_spec.get_builder
-        model = guitar_spec.get_model.downcase
-        next if model != g_spec.get_model.downcase
-        type = guitar_spec.get_type
-        next if type != g_spec.get_type
-        back_wood = guitar_spec.get_back_wood
-        next if back_wood != g_spec.get_back_wood
-        top_wood = guitar_spec.get_top_wood
-        next if top_wood != g_spec.get_top_wood
-        guitar_list.push g
+    def search(search_spec)
+      matching_guitars = []
+      @guitars.each do |guitar|
+        guitar_spec = guitar.get_spec
+        builder = search_spec.get_builder
+        next if builder != guitar_spec.get_builder
+        model = search_spec.get_model.downcase
+        next if model != guitar_spec.get_model.downcase
+        type = search_spec.get_type
+        next if type != guitar_spec.get_type
+        back_wood = search_spec.get_back_wood
+        next if back_wood != guitar_spec.get_back_wood
+        top_wood = search_spec.get_top_wood
+        next if top_wood != guitar_spec.get_top_wood
+        matching_guitars.push guitar
       end
-      return guitar_list
+      return matching_guitars
     end
   end
 
