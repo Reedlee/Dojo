@@ -82,6 +82,22 @@ module RickShop
     def get_num_strings
       @num_strings
     end
+
+    def matches(guitar_spec)
+      builder = guitar_spec.get_builder
+      return false if builder != self.get_builder
+      model = guitar_spec.get_model.downcase
+      return false if model != self.get_model.downcase
+      type = guitar_spec.get_type
+      return false if type != self.get_type
+      back_wood = guitar_spec.get_back_wood
+      return false if back_wood != self.get_back_wood
+      top_wood = guitar_spec.get_top_wood
+      return false if top_wood != self.get_top_wood
+      num_strings = guitar_spec.get_num_strings
+      return false if num_strings != self.get_num_strings
+      return true
+    end
   end
 
   class Inventory
@@ -89,8 +105,7 @@ module RickShop
       @guitars = guitars
     end
 
-    def add_guitar(serial_number, price, builder, model, type, back_wood, top_wood, num_strings)
-      spec = GuitarSpec.new(builder, model, type, back_wood, top_wood, num_strings)
+    def add_guitar(serial_number, price, spec)
       guitar = Guitar.new(serial_number, price, spec)
       @guitars.push(guitar)
     end
@@ -103,19 +118,7 @@ module RickShop
       matching_guitars = []
       @guitars.each do |guitar|
         guitar_spec = guitar.get_spec
-        builder = search_spec.get_builder
-        next if builder != guitar_spec.get_builder
-        model = search_spec.get_model.downcase
-        next if model != guitar_spec.get_model.downcase
-        type = search_spec.get_type
-        next if type != guitar_spec.get_type
-        back_wood = search_spec.get_back_wood
-        next if back_wood != guitar_spec.get_back_wood
-        top_wood = search_spec.get_top_wood
-        next if top_wood != guitar_spec.get_top_wood
-        num_strings = search_spec.get_num_strings
-        next if num_strings != guitar_spec.get_num_strings
-        matching_guitars.push guitar
+        matching_guitars.push(guitar) if guitar_spec.matches(search_spec)
       end
       return matching_guitars
     end
