@@ -597,4 +597,38 @@ describe 'stack examples' do
       expect(largestRectangle2(h)).to eql(10558350)
     end
   end
+
+  context 'Min max riddle' do
+
+    def riddle(arr)
+      # complete this function
+
+      size = arr.size
+      result = []
+      (1..size).each do |idx|
+        max = 0
+        arr.each_cons(idx) do |array|
+          min = array.min
+          max = [max, min].max
+        end
+
+
+        result.push(max)
+      end
+
+      result
+
+    end
+
+    def riddle_optim(arr)
+
+    end
+
+    it '' do
+      arr = [3,5,4,7,6,2]
+      expect(riddle(arr)).to eql([7, 6, 4, 4, 3, 2])
+    end
+  end
+
+
 end
