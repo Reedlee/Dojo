@@ -525,4 +525,80 @@ describe 'String' do
       expect(stringConstruction(str)).to eql(7)
     end
   end
+
+  context 'Sherlock and the Valid String' do
+    def is_valid(s)
+      s_counters = {}
+      s.each_char do |char|
+        if s_counters[char].nil?
+          s_counters[char] = 1
+        else
+          s_counters[char] += 1
+        end
+      end
+
+      min = 1.0 / 0
+      max = 0
+      s_counters.each_value do |val|
+        max = [max, val].max
+        min = [min, val].min
+      end
+
+
+      group_count = {max => [], min => []}
+      s_counters.each_value do |val|
+        if val == max
+          group_count[max].push(val)
+        elsif val == min
+          group_count[min].push(val)
+        else
+          return 'NO'
+        end
+      end
+
+      min_size = group_count[min].size
+      max_size = group_count[max].size
+      if max == min || (max == min + 1 && (min_size == 1 || max_size == 1)) || (min == 1 && min_size == 1)
+        return 'YES'
+      else
+        return 'NO'
+      end
+    end
+
+    it '1a' do
+      s = 'a'
+      expect(is_valid(s)).to eql('YES')
+    end
+
+    it '2aabbcd' do
+      s = 'aabbcd'
+      expect(is_valid(s)).to eql('NO')
+    end
+
+    it '3abbcd' do
+      s = 'abbcd'
+      expect(is_valid(s)).to eql('YES')
+    end
+
+    it '4aabbccd' do
+      s = 'aabbccd'
+      expect(is_valid(s)).to eql('YES')
+    end
+
+    it '5aaaaabc' do
+      s = 'aaaaabc'
+      expect(is_valid(s)).to eql('NO')
+    end
+
+    it '6aaabbcc' do
+      s = 'aaabbcc'
+      expect(is_valid(s)).to eql('YES')
+    end
+
+    it '7ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd' do
+      s = 'ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd'
+      expect(is_valid(s)).to eql('YES')
+    end
+
+  end
 end
