@@ -1,6 +1,6 @@
 # Require this file for unit tests
 ENV['HANAMI_ENV'] ||= 'test'
-
+require 'rspec/hanami'
 require_relative '../config/environment'
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
@@ -24,6 +24,7 @@ Hanami::Utils.require!("#{__dir__}/support")
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.include RSpec::Hanami::Matchers
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
